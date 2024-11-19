@@ -1,0 +1,29 @@
+<h1 class="mb-b">Welcome: <%= authorName %></h1>
+<a href="/dashboard/article/new" class="btn btn-success">New Article</a>
+<a href="/dashboard/author/edit" class="btn btn-info">Edit Profile</a>
+<a href="/dashboard/logout" class="btn btn-danger">Logout</a>
+
+<% if (locals.articles) { %>
+    <% articles.forEach(article => { %>
+        <div class="card mt-4">
+            <div class="card-body">
+                <h4 class="card-title"><%= article.title %></h4>
+                <div class="card-subtitle text-muted mb-2">
+                    <%= article.created_at.toDateString() %>
+                </div>
+                <div class="card-text mb-2"><%= article.description %></div>
+                <a href="/dashboard/article/<%= article.slug %>" class="btn btn-primary">Read More</a>
+                <a href="/dashboard/article/edit/<%= article._id %>" class="btn btn-info">Edit</a>
+                <form action="/dashboard/article/<%= article._id %>?_method=DELETE" method="POST" class="d-inline">
+                    <button type="submit" class="btn btn-danger">Delete</button>
+                </form>
+            </div>
+        </div>
+    <% }) %>
+<% } %>
+
+<% if (locals.counts > 3) { %>
+    <button class="btn btn-primary mt-4" id="load-btn">Load Articles</button>
+<% } %>
+
+<script src="/dashboard/script.js"></script>

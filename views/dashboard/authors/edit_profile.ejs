@@ -1,0 +1,29 @@
+<h1 class="mb-4">Update Profile</h1>
+<% if (locals.message) { %>
+    <h4 class="row justify-content-center" style="color:red"><%= message %></h4>
+<% } %>
+
+<form action="/dashboard/author/update?_method=PUT" method="POST" enctype="multipart/form-data">
+    <div class="form-group">
+        <label for="name">Name</label>
+        <input type="text" name="name" id="name" class="form-control" value="<%= author.name %>">
+    </div>
+    <div class="form-group">
+        <label for="username">Username</label>
+        <input type="text" name="username" id="username" class="form-control" value="<%= author.username %>">
+    </div>
+    <div class="form-group">
+        <label for="bio">Bio</label>
+        <input type="text" name="bio" id="bio" class="form-control" value="<%= author.bio %>">
+    </div>
+    <div class="form-group">
+        <label for="description">Description</label>
+        <textarea name="description" id="description" rows="10" class="form-control"><%= author.description %></textarea>
+    </div>
+    <div class="form-group">
+        <label for="profile_cover">Cover</label>
+        <input type="file" name="profile_cover" id="profile_cover" class="form-control">
+    </div>
+    <a href="/dashboard" class="btn btn-secondary">Cancel</a>
+    <button type="submit" class="btn btn-primary">Update</button>
+</form>

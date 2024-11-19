@@ -1,0 +1,14 @@
+<% if(!locals.articleData) { %>
+    <div>Not Found</div>
+<% } else { %>
+    <h1 class="mb-1"><%= articleData.title %></h1>
+    <div class="text-muted mb-2">
+        <%= articleData.created_at.toLocaleDateString() %>
+    </div>
+    <a href="/dashboard" class="btn btn-secondary">All Articles</a>
+    <a href="/dashboard/article/edit/<%= articleData._id %>" class="btn btn-info">Edit</a>
+
+    <div>
+        <%- articleData.markdown %>
+    </div>
+<% } %>

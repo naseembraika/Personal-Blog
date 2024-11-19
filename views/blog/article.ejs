@@ -1,0 +1,31 @@
+<!-- Page Header-->
+<header class="masthead" style="background-image: url('<%= article.cover_path %>')">
+    <div class="container position-relative px-4 px-lg-5">
+        <div class="row gx-4 gx-lg-5 justify-content-center">
+            <div class="col-md-10 col-lg-8 col-xl-7">
+                <div class="post-heading">
+                    <h1><%= article.title %></h1>
+                    <h2 class="subheading"><%= article.description %></h2>
+                    <span class="meta">
+                        Posted by
+                        <a href="/blog/author/<%= article.author.username %>"><%= article.author.name %></a>
+                        on
+                        <%= article.created_at.toLocaleDateString('default', { month: 'long' }) %>
+                        <%= article.created_at.getDate() %>,
+                        <%= article.created_at.getFullYear() %>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+<!-- Post Content-->
+<article class="mb-4">
+    <div class="container px-4 px-lg-5">
+        <div class="row gx-4 gx-lg-5 justify-content-center">
+            <div class="col-md-10 col-lg-8 col-xl-7">
+                <%- article.markdown %>
+            </div>
+        </div>
+    </div>
+</article>

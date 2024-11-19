@@ -1,0 +1,10 @@
+<h1 class="mb-4">New Article</h1>
+<% if (locals.message) { %>
+    <h4 class="mb-4" style="color: red;">
+        <%= message %>
+    </h4>
+<% } %>
+
+<form action="/dashboard/article/new" method="POST" enctype="multipart/form-data">
+    <%- include('_form_fields') %>
+</form>

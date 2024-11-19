@@ -1,0 +1,9 @@
+<h1 class="mb-4">Edit Article</h1>
+
+<% if(locals.errMessage) { %>
+    <p style="color: red;"><%= errMessage %></p>
+<% } %>
+
+<form action="/dashboard/article/edit/<%= articleData._id %>?_method=PUT" method="POST" enctype="multipart/form-data">
+    <%- include('_form_fields') %>
+</form>
